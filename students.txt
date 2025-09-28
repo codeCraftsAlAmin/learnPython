@@ -1,0 +1,5 @@
+Anisul  = Ict lecturer
+Ayesha = Bangla lecturer
+Emran = English lecturer
+Shima = G.P lecturer
+Sadi - Physics lecturer
