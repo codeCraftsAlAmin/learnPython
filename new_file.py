@@ -1,27 +1,27 @@
-from abc import ABC, abstractmethod
+def search(arr, low, high, target):
+    if low <= target:
+        mid = (low + high) // 2
 
-class Shape(ABC):
-    def __init__(self, dm1, dm2):
-        self.dm1 = dm1
-        self.dm2 = dm2
-    
-    @abstractmethod
-    def area(self):
-        pass
-    
+        if arr[mid] == target:
+            return mid
 
-class Triangle(Shape):
-    def area(self):
-        return 0.5 * (self.dm1) * (self.dm2)
-    
-    
-class Rectangle(Shape):
-    def area(self):
-        return (self.dm1) * (self.dm2)
-    
+        elif arr[mid] < target:
+            return search(arr, mid + 1, high, target)
+        else:
+            return search(arr, low, mid - 1, target)
+        
+    else:
+        return -1
 
-t = Triangle(10, 20)
-print(t.area())
 
-r = Rectangle(10, 20)
-print(r.area())
+arr = [ 2, 3, 4, 10, 40 ]
+target = 100
+low = 0
+high = len(arr) - 1
+
+res = search(arr, low, high, target)
+
+if res != -1:
+    print("Element found at index no: ", res)
+else:
+    print("Element is not present in array")
